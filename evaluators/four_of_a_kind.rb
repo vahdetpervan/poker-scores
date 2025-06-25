@@ -7,8 +7,7 @@ module Evaluators
 
     def self.rank(hand)
       quad = hand.value_counts.find { |_, v| v == 4 }
-      kicker = (hand.values - [quad]).max
-      [RANK, quad, kicker]
+      [RANK, quad]
     end
   end
 end

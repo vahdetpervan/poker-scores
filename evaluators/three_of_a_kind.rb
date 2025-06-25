@@ -7,8 +7,7 @@ module Evaluators
 
     def self.rank(hand)
       trips = hand.value_counts.find { |_, v| v == 3 }
-      kickers = (hand.values - [trips]).sort.reverse
-      [RANK, trips] + kickers
+      [RANK, trips]
     end
   end
 end
