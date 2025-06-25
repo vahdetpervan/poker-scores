@@ -6,7 +6,7 @@ module Evaluators
     end
 
     def self.rank(hand)
-      pairs = hand.value_counts.select { |_, v| v == 2 }.keys.sort.reverse
+      pairs = hand.value_counts.select { |_, v| v == 2 }.keys
       kicker = (hand.values - pairs).max
       [RANK] + pairs + [kicker]
     end
