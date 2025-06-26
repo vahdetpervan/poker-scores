@@ -1,9 +1,5 @@
-require_relative '../flushable'
-require_relative '../straightable'
-
 module Evaluators
   class StraightFlush
-    extend Straightable
     RANK = 8
 
     def self.match?(hand)
