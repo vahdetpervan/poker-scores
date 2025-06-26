@@ -27,9 +27,8 @@ class Hand
     Evaluators::HighCard
   ]
 
-  def initialize(card_codes, hand_rank_class = HandRank)
+  def initialize(card_codes)
     @cards = card_codes.map { |code| Card.new(code) }
-    @hand_rank_class = hand_rank_class
   end
 
   def values
@@ -42,16 +41,5 @@ class Hand
 
   def value_counts
     values.tally
-  end
-
-  def rank
-    evaluator = EVALUATORS.find { |e| e.match?(self) }
-    raise "No evaluator matched hand: #{values.inspect} (suits: #{suits.inspect})" unless evaluator
-
-    @hand_rank_class.new(evaluator.rank(self))
-  end
-
-  def >(other_hand)
-    rank > other_hand.rank
   end
 end

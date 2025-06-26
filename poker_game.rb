@@ -11,7 +11,7 @@ class PokerGame
       cards = line.strip.split
       hand1 = Hand.new(cards[0..4])
       hand2 = Hand.new(cards[5..9])
-      hand1 > hand2 ? hand_one_wins += 1 : hand_two_wins += 1
+      HandRank.for(hand1) > HandRank.for(hand2) ? hand_one_wins += 1 : hand_two_wins += 1
     end
     "Player 1 total wins: #{hand_one_wins}, Player 2 total wins: #{hand_two_wins}"
   end
